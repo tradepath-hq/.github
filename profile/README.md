@@ -1,12 +1,22 @@
-# Tradepath
+**FOR SCHOOL OWNERS**
 
-Tradepath acquires and operates vocational schools across America. We build the technology that runs the full student lifecycle — from the moment a prospective student encounters the school to the day they graduate, get placed, and refer someone else.
+# We Acquire and Operate **Vocational Trade Schools.**
+
+TradePath is a Sun Belt platform built to buy, modernize, and grow independent trade schools. We bring capital, a custom-built AI operating system, and 24/7 enrollment infrastructure. So your school reaches its full potential.
+
+[**Talk to Us About Your School**](mailto:owners@tradepath.com) &nbsp;&nbsp; [Learn How It Works](#how-it-works)
 
 ---
 
-## What we're building
+| **SUN BELT** | **4 LOCATIONS** | **DOD CERTIFIED** | **CAPITAL READY** |
+|---|---|---|---|
+| TX · NM · AZ · NV · FL · GA · LA · AL · SC · NC | El Paso · Alamogordo · San Antonio · Albuquerque | Active military & government contracts | We close fast, on your timeline |
 
-Most vocational schools run on outdated websites, manual intake forms, and coordinators who spend their days answering the same questions by phone. We're replacing that with an AI-managed enrollment system that operates 24/7 and handles everything that doesn't require human judgment.
+---
+
+## How It Works
+
+Most vocational schools run on outdated websites, manual intake forms, and coordinators who spend their days answering the same questions by phone. We replace that with an AI-managed enrollment system that operates 24/7 and handles everything that doesn't require human judgment.
 
 The system spans six stages:
 
@@ -19,15 +29,15 @@ The system spans six stages:
 6. Post-grad              → Referrals, reviews, re-enrollment, alumni nurture
 ```
 
-The goal: a student who finds us at midnight on a Sunday can ask every question, find out which funding path they qualify for, and reserve a seat — without talking to anyone. A coordinator follows up the next morning with a warm lead who has already self-qualified.
+A student who finds us at midnight on a Sunday can ask every question, find out which funding path they qualify for, and reserve a seat — without talking to anyone. A coordinator follows up the next morning with a warm lead who has already self-qualified.
 
-Today, Stages 1–2 (top of funnel and lead capture) are functional. The rest is being built in sequence.
+Today, Stages 1–2 are functional. The rest is being built in sequence.
 
 ---
 
-## The school portfolio
+## The School Portfolio
 
-Each school in the Tradepath portfolio gets its own website cloned from the master template. The code never changes between schools — only the branding, programs, and content differ.
+Each school in the TradePath portfolio gets its own website cloned from the master template. The code never changes between schools — only the branding, programs, and content differ.
 
 | School | Domain | Status |
 |---|---|---|
@@ -50,11 +60,11 @@ Each school in the Tradepath portfolio gets its own website cloned from the mast
 
 | Repo | What it does | Why it's separate |
 |---|---|---|
-| [porig212/Rally](https://github.com/porig212/Rally) | Multi-tenant CRM. Manages organizations, programs, cohorts, leads, and enrollments across all schools in the portfolio. Handles pre-start communications, coordinator tasks, and compliance data. | Rally predates Tradepath and serves multiple clients. Tradepath is one tenant. |
+| [porig212/Rally](https://github.com/porig212/Rally) | Multi-tenant CRM. Manages organizations, programs, cohorts, leads, and enrollments across all schools in the portfolio. Handles pre-start communications, coordinator tasks, and compliance data. | Rally predates TradePath and serves multiple clients. TradePath is one tenant. |
 
 ---
 
-## How the pieces connect today
+## How the Pieces Connect Today
 
 ```
 Student visits mymvvi.com
