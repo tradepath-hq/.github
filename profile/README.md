@@ -1,23 +1,27 @@
 # Tradepath
 
-Tradepath acquires and operates vocational schools across America. We build the technology that runs the enrollment pipeline — from the moment a prospective student lands on a school's website to the day they start class.
+Tradepath acquires and operates vocational schools across America. We build the technology that runs the full student lifecycle — from the moment a prospective student encounters the school to the day they graduate, get placed, and refer someone else.
 
 ---
 
 ## What we're building
 
-Most vocational schools run on outdated websites, manual intake forms, and enrollment coordinators who spend their days answering the same questions by phone. We're replacing that with a modern, automated pipeline that works 24/7.
+Most vocational schools run on outdated websites, manual intake forms, and coordinators who spend their days answering the same questions by phone. We're replacing that with an AI-managed enrollment system that operates 24/7 and handles everything that doesn't require human judgment.
 
-The pipeline has four stages:
+The system spans six stages:
 
 ```
-1. School website          → Student discovers programs, reads pricing, decides to inquire
-2. AI enrollment advisor   → Student asks questions, gets matched to a program, books a seat
-3. CRM (Rally)             → School team manages leads, cohorts, and pre-start communications
-4. Pre-start comms         → Automated emails and reminders keep students engaged until day one
+1. Lead generation        → Inbound + outbound; AI responds in under 60 seconds
+2. Funding approval       → AI orchestrates each funding track; staff executes onsite steps
+3. Pre-start              → Automated checklist, welcome sequence, Day 1 logistics
+4. Course delivery        → AI monitors attendance, flags at-risk students
+5. Certification          → Exam scheduling, graduation, placement tracking, compliance reporting
+6. Post-grad              → Referrals, reviews, re-enrollment, alumni nurture
 ```
 
-The goal: a student who finds us at midnight on a Sunday can ask every question, find out if they qualify for financial aid, and reserve a seat — without talking to anyone. A coordinator follows up the next morning with a warm lead who has already self-qualified.
+The goal: a student who finds us at midnight on a Sunday can ask every question, find out which funding path they qualify for, and reserve a seat — without talking to anyone. A coordinator follows up the next morning with a warm lead who has already self-qualified.
+
+Today, Stages 1–2 (top of funnel and lead capture) are functional. The rest is being built in sequence.
 
 ---
 
@@ -39,18 +43,18 @@ Each school in the Tradepath portfolio gets its own website cloned from the mast
 
 | Repo | What it does |
 |---|---|
-| [mvvi-website](https://github.com/tradepath-hq/mvvi-website) | MVVI public marketing site. Also the master template for every future school. Built on Next.js, hosted on Railway. Includes the enrollment flyout that embeds the AI advisor. |
+| [mvvi-website](https://github.com/tradepath-hq/mvvi-website) | MVVI public marketing site and master template for every future school. Built on Next.js, hosted on Railway. Includes the enrollment flyout that embeds the AI advisor. |
 | [advisor](https://github.com/tradepath-hq/advisor) | The AI enrollment advisor — chat and voice. Students talk to Alex 24/7, get matched to programs, qualify for funding, and book cohorts. Powered by Claude (Anthropic) for chat and Vapi for phone calls. |
 
 ### Outside this organization
 
 | Repo | What it does | Why it's separate |
 |---|---|---|
-| [porig212/Rally](https://github.com/porig212/Rally) | Multi-tenant CRM. Manages organizations, programs, cohorts, leads, and enrollments across all schools in the portfolio. Handles pre-start communications. | Rally predates Tradepath and serves multiple clients. Tradepath is one tenant. |
+| [porig212/Rally](https://github.com/porig212/Rally) | Multi-tenant CRM. Manages organizations, programs, cohorts, leads, and enrollments across all schools in the portfolio. Handles pre-start communications, coordinator tasks, and compliance data. | Rally predates Tradepath and serves multiple clients. Tradepath is one tenant. |
 
 ---
 
-## How the pieces connect
+## How the pieces connect today
 
 ```
 Student visits mymvvi.com
@@ -62,7 +66,9 @@ Clicks "Enroll Now" → AI advisor flyout opens (embedded iframe)
 advisor app (tradepath-hq/advisor)
   — Claude answers questions
   — Vapi handles phone calls
+  — Identifies funding path (VA, TWC, employer, Pell)
   — Collects name, email, phone
+  — Books cohort seat
         │
         ▼
 Rally CRM (porig212/Rally)
@@ -74,14 +80,18 @@ Rally CRM (porig212/Rally)
 Coordinator follow-up → Student starts class
 ```
 
+As stages 3–6 are built, the flow extends beyond class start — through certification, placement, and alumni re-engagement.
+
 ---
 
 ## Principles
 
-**Own the pipeline.** School websites on Lovable or Wix can't be integrated, can't be optimized, and can't be scaled. We build and own every part of the stack.
+**Own the pipeline.** School websites on Lovable or Wix can't be integrated, optimized, or scaled. We build and own every part of the stack.
 
-**One codebase, many schools.** A bug fix or new feature in the master template can be deployed to every school. Adding a new school is a configuration change, not a rebuild.
+**One codebase, many schools.** A bug fix or new feature in the master template deploys to every school. Adding a new school is a configuration change, not a rebuild.
 
-**AI-first enrollment.** The advisor handles 80% of prospective student questions. Coordinators spend their time on students who are ready to enroll, not answering "how long is the CDL program?"
+**AI handles everything it can.** The advisor answers questions, identifies funding paths, schedules appointments, sends reminders, flags at-risk students, and drives post-grad engagement. Coordinators focus on decisions that require human judgment.
 
-**Automate the obvious.** Reminder emails before the first day of class, cohort confirmations, financial aid follow-ups — these don't need a human. They just need a system.
+**Automate the obvious.** Reminder emails, cohort confirmations, financial aid follow-ups, 90-day placement checks — these don't need a human. They need a system.
+
+**Build for compliance from day one.** TWC and DoD funding programs require outcome reporting. Placement rates, wages, and completion data are tracked on every enrollment record — not retrofitted later.
